@@ -2,20 +2,95 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* Backgrounds */
+    --background: 0 0% 100%; /* White */
+    --foreground: 0 0% 0%; /* Black */
+
+    /* Cards, Popovers */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+
+    /* Primary Colors */
+    --primary: 221 91% 52%; /* #1161F5 - Blue */
+    --primary-foreground: 0 0% 98%; /* Almost white */
+
+    /* Secondary Colors */
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+
+    /* Muted / Descriptions */
+    --muted: 0 0% 85%; /* #D9D9D9 - Light Gray */
+    --muted-foreground: 0 0% 40%; /* Darker gray for contrast */
+
+    /* Accent Colors */
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 0 0% 0%;
+
+    /* Destructive (if needed) */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Borders & Inputs */
+    --border: 0 0% 85%; /* #D9D9D9 - Light Gray */
+    --input: 0 0% 85%;
+
+    /* Focus Ring */
+    --ring: 221 91% 52%; /* Same as primary blue */
+
+    /* Chart Colors (Icons) */
+    --chart-1: 221 91% 52%; /* #1161F5 - Blue */
+    --chart-2: 42 89% 55%; /* #ECB22D - Yellow */
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark Mode */
+    --background: 0 0% 0%; /* Black */
+    --foreground: 0 0% 98%; /* White */
+
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary */
+    --primary: 221 91% 52%; /* Same Blue */
+    --primary-foreground: 0 0% 98%;
+
+    /* Secondary */
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    /* Muted */
+    --muted: 0 0% 30%; /* Darker gray */
+    --muted-foreground: 0 0% 70%; /* Lighter text */
+
+    /* Accent */
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    /* Borders & Inputs */
+    --border: 0 0% 30%;
+    --input: 0 0% 30%;
+
+    /* Chart Colors (Icons) */
+    --chart-1: 221 91% 52%; /* #1161F5 - Blue */
+    --chart-2: 42 89% 55%; /* #ECB22D - Yellow */
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
