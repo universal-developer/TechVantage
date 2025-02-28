@@ -152,7 +152,7 @@ export default function Navbar() {
         {/* Buttons - Hidden on Mobile */}
         <div className="hidden md:flex space-x-4">
           <Button variant="link">Log in</Button>
-          <Button variant="default">Sign up</Button>
+          <Button variant="default">Get started now</Button>
         </div>
       </div>
 
@@ -190,7 +190,7 @@ export default function Navbar() {
               </NavigationMenuList>
             </NavigationMenu>
             <Button variant="link">Log in</Button>
-            <Button variant="default">Sign up</Button>
+            <Button variant="default">Get started now</Button>
           </motion.div>
         )}
       </AnimatePresence>
