@@ -56,6 +56,21 @@ export default function Testimonials() {
           />
         ))}
       </div>
+      {/* Blue Stats Section */}
+      <div className="flex flex-wrap justify-center gap-20 mt-20">
+        {[
+          { value: "10+", label: "Years in the Market" },
+          { value: "200,000+", label: "Happy Customers" },
+          { value: "99%", label: "Uptime" },
+          { value: "98%", label: "Customer Retention Rate" },
+          { value: "24/7", label: "Support" },
+        ].map((stat, index) => (
+          <div key={index} className="flex flex-col items-center text-center">
+            <h1 className="text-2xl font-bold text-blue-600">{stat.value}</h1>
+            <p className="text-gray-600">{stat.label}</p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
