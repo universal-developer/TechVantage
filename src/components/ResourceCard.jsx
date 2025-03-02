@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function ResourceCard({ image, tags, title, link }) {
   return (
-    <div className="flex flex-col overflow-hidden bg-white rounded-lg shadow-md">
+    <div className="flex flex-col overflow-hidden bg-white rounded-lg shadow-md max-w-sm w-full mx-auto">
       <div className="relative h-48 w-full">
         <Image
           src={image || "/placeholder.svg"}

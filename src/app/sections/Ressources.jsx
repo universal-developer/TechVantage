@@ -48,16 +48,19 @@ export default function ResourcesSection() {
           Empower Your Business with Free Resources
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {resources.map((resource, index) => (
-            <ResourceCard
-              key={index}
-              image={resource.image}
-              tags={resource.tags}
-              title={resource.title}
-              link={resource.link}
-            />
-          ))}
+        {/* WRAP THE GRID IN A FLEX CONTAINER FOR CENTERING */}
+        <div className="flex justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-4xl">
+            {resources.map((resource, index) => (
+              <ResourceCard
+                key={index}
+                image={resource.image}
+                tags={resource.tags}
+                title={resource.title}
+                link={resource.link}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

@@ -38,7 +38,7 @@ const features = [
 
 export default function FeaturesSection() {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+    <div className="max-w-[1170px] mx-auto px-4 py-12 sm:px-6 lg:px-8">
       <div className="flex flex-col items-center justify-center gap-2 mb-20">
         <h1 className="text-3xl font-bold text-gray-900 mb-6 text-center">
           Streamline Your Workflow with TechVantage

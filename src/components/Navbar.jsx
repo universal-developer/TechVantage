@@ -65,7 +65,7 @@ export default function Navbar() {
         {/* Logo */}
         <div>
           <Link href="/" className="text-2xl font-bold">
-            LOGO
+            TechVantage
           </Link>
         </div>
 
