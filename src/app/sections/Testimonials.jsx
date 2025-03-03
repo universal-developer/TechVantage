@@ -1,6 +1,8 @@
 "use client";
+
 import React from "react";
 import { TestimonialCard } from "@/components/TestimonialCard";
+import { InfiniteSlider } from "@/components/ui/infinite-slider";
 
 const testimonials = [
   {
@@ -29,6 +31,22 @@ const testimonials = [
   },
 ];
 
+const stats = [
+  { value: "10+", label: "Years in the Market" },
+  { value: "200,000+", label: "Happy Customers" },
+  { value: "99%", label: "Uptime" },
+  { value: "98%", label: "Customer Retention Rate" },
+  { value: "24/7", label: "Support" },
+];
+
+// Stat Card component for the mobile infinite slider
+const StatCard = ({ value, label }) => (
+  <div className="min-w-[180px] flex flex-col items-center text-center p-4">
+    <h3 className="text-3xl font-bold text-blue-600 mb-1">{value}</h3>
+    <p className="text-gray-600 text-sm">{label}</p>
+  </div>
+);
+
 export default function Testimonials() {
   return (
     <div className="relative mx-auto py-20 overflow-visible max-w-6xl px-4">
@@ -43,8 +61,8 @@ export default function Testimonials() {
         </p>
       </div>
 
-      {/* Testimonial Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Testimonial Grid - Added justify-items-center for mobile centering */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center">
         {testimonials.map((testimonial, index) => (
           <TestimonialCard
             key={index}
@@ -56,20 +74,29 @@ export default function Testimonials() {
           />
         ))}
       </div>
-      {/* Blue Stats Section */}
-      <div className="flex flex-wrap justify-center gap-20 mt-20">
-        {[
-          { value: "10+", label: "Years in the Market" },
-          { value: "200,000+", label: "Happy Customers" },
-          { value: "99%", label: "Uptime" },
-          { value: "98%", label: "Customer Retention Rate" },
-          { value: "24/7", label: "Support" },
-        ].map((stat, index) => (
-          <div key={index} className="flex flex-col items-center text-center">
-            <h1 className="text-2xl font-bold text-blue-600">{stat.value}</h1>
-            <p className="text-gray-600">{stat.label}</p>
-          </div>
-        ))}
+
+      {/* Stats Section with responsive behavior */}
+      <div className="mt-20">
+        {/* Desktop Stats - Hidden on mobile */}
+        <div className="hidden md:flex flex-wrap justify-around gap-8 lg:gap-20">
+          {stats.map((stat, index) => (
+            <div key={index} className="flex flex-col items-center text-center">
+              <h3 className="text-3xl font-bold text-blue-600 mb-1">
+                {stat.value}
+              </h3>
+              <p className="text-gray-600">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Mobile Stats with InfiniteSlider - Hidden on desktop */}
+        <div className="md:hidden">
+          <InfiniteSlider speedOnHover={10} gap={16} speed={30}>
+            {stats.map((stat, index) => (
+              <StatCard key={index} value={stat.value} label={stat.label} />
+            ))}
+          </InfiniteSlider>
+        </div>
       </div>
     </div>
   );

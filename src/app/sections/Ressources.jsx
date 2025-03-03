@@ -42,25 +42,23 @@ export default function ResourcesSection() {
   ];
 
   return (
-    <section className="py-16 px-4">
+    <section className="py-12 sm:py-16 px-4 sm:px-6">
       <div className="max-w-[1170px] mx-auto">
-        <h2 className="text-4xl font-bold text-center mb-16">
+        <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10 sm:mb-16">
           Empower Your Business with Free Resources
         </h2>
 
-        {/* WRAP THE GRID IN A FLEX CONTAINER FOR CENTERING */}
-        <div className="flex justify-center">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-4xl">
-            {resources.map((resource, index) => (
-              <ResourceCard
-                key={index}
-                image={resource.image}
-                tags={resource.tags}
-                title={resource.title}
-                link={resource.link}
-              />
-            ))}
-          </div>
+        {/* Improved grid layout with better breakpoints */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto">
+          {resources.map((resource, index) => (
+            <ResourceCard
+              key={index}
+              image={resource.image}
+              tags={resource.tags}
+              title={resource.title}
+              link={resource.link}
+            />
+          ))}
         </div>
       </div>
     </section>
